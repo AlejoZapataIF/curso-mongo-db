@@ -6,6 +6,10 @@
   <title>Detalles del Producto</title>
 </head>
 <body>
-
+<script>
+  const urlParams = new URL(window.location.href);
+  const productId = urlParams.searchParams;
+  document.write(productId);
+</script>
 </body>
 </html>

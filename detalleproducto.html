@@ -6,13 +6,18 @@
   <title>Detalles del Producto</title>
 </head>
 <body>
+  <h1>Detalles Producto</h1>
+  <div class="detalles-producto"></div>
 <script>
   const urlParams = new URL(window.location.href);
   const productId = urlParams.searchParams;
   //document.write(productId);
   const productSTRING = localStorage.getItem(`product_${productId}`);
-  const productJSON = JSON.parse(productJSON);
-  console.log(productJSON)
+  if(productSTRING){
+    const productJSON = JSON.parse(productSTRING);
+    document.write(productJSON)
+    // const detallesContenedor = 
+  }
 </script>
 </body>
 </html>

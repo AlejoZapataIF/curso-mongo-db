@@ -10,7 +10,7 @@
   const urlParams = new URL(window.location.href);
   const productId = urlParams.searchParams;
   //document.write(productId);
-  const productJSON = localstorage.getItem(`product_${productId}`);
+  const productJSON = localStorage.getItem(`product_${productId}`);
   document.write(productJSON)
 </script>
 </body>

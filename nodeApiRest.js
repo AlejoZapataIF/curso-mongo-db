@@ -22,4 +22,8 @@ app.post('/enviardata',  (req, res) => {
   res.send('Data recibida en el servidor: ' + JSON.stringify(data) )
 })
 
+// con este get desde postman obtenemos la data.js
+const test = require('./data');
+app.get('/products', (req, res) => res.json({ total: test.length, status: 200, test }));
+
 app.listen(3000)

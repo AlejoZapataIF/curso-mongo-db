@@ -57,8 +57,9 @@
       const products = await obtenerProductos();
 
       let productos = "";
-      products.test.forEach((product) => {
-		localStorage.setItem(`product_${product.id}`, JSON.stringify(product));
+      // products.test.forEach((product) => {  // para endpoint /products con json en data.js
+      products.forEach((product) => {	       // para endpoint /productsFromGraphQL con json en mongo DB a través de GraphQL  
+        localStorage.setItem(`product_${product.id}`, JSON.stringify(product));
         productos += `
           <div class="card" style="width: 18rem;">
             <img src="${product.image}" style="width: 100px" class="card-img-top" alt="...">

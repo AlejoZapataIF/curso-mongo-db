@@ -47,6 +47,7 @@
       try {
         //const response = await fetch('https://conexionbdmongo.mapatagbusqueda.repl.co/products');
         const response = await fetch('https://conexionbdmongo.mapatagbusqueda.repl.co/productsFromGraphQL');
+	      console.log(response)
         if (!response.ok) {
           throw new Error('Error en la solicitud');
         }
@@ -67,7 +68,7 @@
       console.log(products)
       //products.test.forEach((product) => {  // para endpoint /products con json en data.js
        products.products.forEach(( product ) => {	       // para endpoint /productsFromGraphQL con json en mongo DB a través de GraphQL  
-		localStorage.setItem(`product_${product.id}`, JSON.stringify(product));
+	localStorage.setItem(`product_${product._id}`, JSON.stringify(product));
         productos += `
           <div class="card" style="width: 15rem; text-align: center">
             <img src="${product.imagen}" style="width: 10em" class="card-img-top" alt="...">

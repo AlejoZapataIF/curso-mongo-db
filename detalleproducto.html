@@ -46,7 +46,7 @@
   <script>
     // Obtén el ID del producto de la URL (podemos usar la url porque no estamos haciendo http en internet sino en el equipo)
     const urlParams = new URL(window.location.href);
-    const productId = urlParams.searchParams.get('id');
+    const productId = urlParams.searchParams.get('_id');
     // Función para obtener los detalles del product
     // Intenta recuperar el producto desde localStorage
     const productJSON = localStorage.getItem(`product_${productId}`);

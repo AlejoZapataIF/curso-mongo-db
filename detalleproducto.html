@@ -5,23 +5,78 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Detalles del Producto</title>
-</head>
+  <link href="styleDetalles.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://gc.kes.v2.scr.kaspersky-labs.com/7EA5E9BB-55E1-4C31-9C21-4943DDFED2E4/main.js?attr=AYR66fM7Dby1vdBgMFZv9CpwWwJrt9CAaNz1aZ7oz1w_9GtPn-sexYmHKTsv75bMuFJwM-R9Jtum_GEFPtiU4RgBc6gnl2NqCXIJUlO1kd2wEawNUSsJP0ZodFtfugGs" charset="UTF-8"></script></head>
 
 <body>
-  <header>
-    <h1>Detalles del Producto</h1>
-  </header>
+  <header style="margin-top: -21px">
+    <h1>
+      <div class="titulo-encabezado">
+        <img src="logo-pag.png"  alt="Logo" style="width: 180px; height: auto;">
+      </div>
+     
+    </h1>
+  
+    
+      <div class="Encabezado"> 
+  
+        <div class="contenido-central">  
+        <nav>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#">Registro</a></li>
+            <li><a href="#">Log in</a></li>
+          </ul>
+        </nav>
+        </div>  
+  
+        <div class="icono-carrito">
+          <a href="carritodecompra.html"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          </a>
+        </div>
+  
+      </div>
+    </header>
   <div class="detalles-producto">
     <!-- Aquí mostrarás los detalles del producto utilizando JavaScript -->
   </div>
+  
+  <button id="agregarAlCarrito">Agregar al Carrito</button>
+  
   <script>
-    // Obtén el ID del producto de la URL
+    // Obtén el ID del producto de la URL (podemos usar la url porque no estamos haciendo http en internet sino en el equipo)
     const urlParams = new URL(window.location.href);
     const productId = urlParams.searchParams.get('id');
     // Función para obtener los detalles del product
     // Intenta recuperar el producto desde localStorage
     const productJSON = localStorage.getItem(`product_${productId}`);
 
+    // Creamos el evento de escucha del click del botón agregar al carrito
+     document.addEventListener("DOMContentLoaded", () => {
+      const product = JSON.parse(productJSON);
+      // Agrega un evento al botón "Agregar al Carrito"
+      const agregarAlCarritoButton = document.getElementById("agregarAlCarrito");
+      agregarAlCarritoButton.addEventListener("click", () => {
+        // Agrega el producto al carrito en localStorage
+        agregarAlCarrito(product);
+      });
+    });
+    // creamos la función de agregar al carrito de compra
+    function agregarAlCarrito(product) {
+      // Obtén el carrito actual desde localStorage o crea un array vacío
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+      // Agrega el producto al carrito
+      carrito.push(product);
+
+      // Guarda el carrito actualizado en localStorage
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+
+      // Puedes mostrar una confirmación de que el producto se ha agregado al carrito
+      alert("Producto agregado al carrito");
+    }
+
+    // mostramos el detalle del producto:
     if (productJSON) {
       // Si el producto está en localStorage, convierte el JSON a un objeto JavaScript
       const product = JSON.parse(productJSON);
@@ -29,10 +84,14 @@
       // Muestra los detalles del producto en la página
       const detallesContainer = document.querySelector('.detalles-producto');
       detallesContainer.innerHTML = `
+       <div style="width:50%;">
         <h2>${product.title}</h2>
         <img src="${product.image}" alt="${product.title}" style="width: 232px">
+       </div>
+       <div style="width:50%;"> 
         <p><strong>Precio:</strong> $${product.price}</p>
         <p><strong>Descripción:</strong> ${product.description}</p>
+      </div>  
       `;
     } else {
       // Si el producto no está en localStorage, muestra un mensaje de que no se ha encontrado.

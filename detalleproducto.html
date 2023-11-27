@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width">
   <title>Detalles del Producto</title>
   <link href="styleDetalles.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="https://gc.kes.v2.scr.kaspersky-labs.com/7EA5E9BB-55E1-4C31-9C21-4943DDFED2E4/main.js?attr=AYR66fM7Dby1vdBgMFZv9CpwWwJrt9CAaNz1aZ7oz1w_9GtPn-sexYmHKTsv75bMuFJwM-R9Jtum_GEFPtiU4RgBc6gnl2NqCXIJUlO1kd2wEawNUSsJP0ZodFtfugGs" charset="UTF-8"></script></head>
+</head>
 
 <body>
   <header style="margin-top: -21px">
@@ -85,12 +85,12 @@
       const detallesContainer = document.querySelector('.detalles-producto');
       detallesContainer.innerHTML = `
        <div style="width:50%;">
-        <h2>${product.title}</h2>
-        <img src="${product.image}" alt="${product.title}" style="width: 232px">
+        <h2>${product.titulo}</h2>
+        <img src="${product.imagen}" alt="${product.titulo}" style="width: 232px">
        </div>
        <div style="width:50%;"> 
-        <p><strong>Precio:</strong> $${product.price}</p>
-        <p><strong>Descripción:</strong> ${product.description}</p>
+        <p><strong>Precio:</strong> $${product.precio}</p>
+        <p><strong>Descripción:</strong> ${product.descripcion}</p>
       </div>  
       `;
     } else {

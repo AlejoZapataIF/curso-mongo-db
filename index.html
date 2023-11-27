@@ -70,10 +70,10 @@
 		localStorage.setItem(`product_${product.id}`, JSON.stringify(product));
         productos += `
           <div class="card" style="width: 15rem; text-align: center">
-            <img src="${product.image}" style="width: 10em" class="card-img-top" alt="...">
+            <img src="${product.imagen}" style="width: 10em" class="card-img-top" alt="...">
             <div class="card-body">
-              <h4 class="card-text">${product.title}</h5>
-              <p class="card-text">${product.price}</p>
+              <h4 class="card-text">${product.titulo}</h5>
+              <p class="card-text">${product.precio}</p>
               <a href="detalleproducto.html?id=${product.id}" class="btn btn-primary">Ver Detalle</a>
             </div>
           </div>

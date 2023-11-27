@@ -51,15 +51,15 @@
 
             // Crear elementos para la imagen y el nombre del producto
             const productImage = document.createElement("img");
-            productImage.src = product.image;
-            productImage.alt = product.title;
+            productImage.src = product.imagen;
+            productImage.alt = product.titulo;
             productImage.style.width = "100px";  // Ajusta el tamaño según sea necesario
 
             const productName = document.createElement("span");
-            productName.textContent = product.title;
+            productName.textContent = product.titulo;
 
             const productPrice = document.createElement("span");
-            productPrice.textContent = product.price;
+            productPrice.textContent = product.precio;
 
             // Crear botones de incremento y decremento
             const incrementButton = document.createElement("button");
